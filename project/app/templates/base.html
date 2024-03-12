@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+
+</head>
+
+<body>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'signUp' %}">signup</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'loginn' %}">login</a>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="issue">Issue</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="return_item">Return</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="history">History</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'logout1' %}">logout</a>
+    </li>
+    {% endif %}
+  </ul>
+  {% block search %}
+
+  {% endblock %}
+
+  {% if user.is_authenticated %}
+  <a class="navbar-brand" href="#">Welcome {{user}}</a>
+  {% endif %}
+
+  {% block content %}
+<div class="row">
+  <div class="col-lg-4">
+    
+  </div>
+  <div class="col-lg-4">
+    <div class="qote ">
+      <h1>LIBRARY MANAGEMENT SYSTEM</h1>
+        <p>
+          “If this nation is to be wise as well as strong,  <br>
+          if we are to achieve our destiny, then we need more <br>
+          new ideas for more wise men reading more good books  <br>
+          in more public libraries.These libraries should be <br>
+          open to all except the censor. We must know all the <br>
+         facts and hear all the alternatives and listen to all  <br>
+         the criticisms. Let us welcome controversial books and <br>
+         controversial authors.For the Bill of Rights is the <br>
+        guardian of our security as well as our liberty. <br>
+          <b>-john kennedy</b>
+        </p>
+      </div>
+  </div>
+  <div class="col-lg-4">
+    
+  </div>
+ 
+    </div>
+  {% endblock %}
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
