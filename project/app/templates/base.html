@@ -15,18 +15,19 @@
 
 <body>
   <ul class="nav">
+    {% if not user.is_authenticated %}
     <li class="nav-item">
       <a class="nav-link" href="{% url 'signUp' %}">signup</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{% url 'loginn' %}">login</a>
     </li>
-    {% if user.is_authenticated %}
+    {% else %}
     <li class="nav-item">
       <a class="nav-link" href="/">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="issue">Issue</a>
+      <a class="nav-link" href="{% url 'issue' %}">Issue</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="return_item">Return</a>
@@ -44,7 +45,10 @@
   {% endblock %}
 
   {% if user.is_authenticated %}
-  <a class="navbar-brand" href="#">Welcome {{user}}</a>
+  <div style="color: white;
+  font-size: large;">
+  Welcome {{user}}
+</div>
   {% endif %}
 
   {% block content %}
