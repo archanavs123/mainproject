@@ -33,7 +33,7 @@
       <a class="nav-link" href="{% url 'return' %}">Return</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="history">History</a>
+      <a class="nav-link" href="{% url 'history' %}">History</a>
     </li>
     <li class="nav-item">
       <a class="nav-link " href="{% url 'logout1' %}">logout</a>
@@ -47,37 +47,37 @@
   {% if user.is_authenticated %}
   <div style="color: white;
   font-size: large;">
-  Welcome {{user}}
-</div>
+    Welcome {{user}}
+  </div>
   {% endif %}
 
   {% block content %}
-<div class="row">
-  <div class="col-lg-4">
-    
-  </div>
-  <div class="col-lg-4">
-    <div class="qote ">
-      <h1>LIBRARY MANAGEMENT SYSTEM</h1>
+  <div class="row">
+    <div class="col-lg-4">
+
+    </div>
+    <div class="col-lg-4">
+      <div class="qote ">
+        <h1>LIBRARY MANAGEMENT SYSTEM</h1>
         <p>
-          “If this nation is to be wise as well as strong,  <br>
+          “If this nation is to be wise as well as strong, <br>
           if we are to achieve our destiny, then we need more <br>
-          new ideas for more wise men reading more good books  <br>
+          new ideas for more wise men reading more good books <br>
           in more public libraries.These libraries should be <br>
           open to all except the censor. We must know all the <br>
-         facts and hear all the alternatives and listen to all  <br>
-         the criticisms. Let us welcome controversial books and <br>
-         controversial authors.For the Bill of Rights is the <br>
-        guardian of our security as well as our liberty. <br>
+          facts and hear all the alternatives and listen to all <br>
+          the criticisms. Let us welcome controversial books and <br>
+          controversial authors.For the Bill of Rights is the <br>
+          guardian of our security as well as our liberty. <br>
           <b>-john kennedy</b>
         </p>
       </div>
-  </div>
-  <div class="col-lg-4">
-    
-  </div>
- 
     </div>
+    <div class="col-lg-4">
+
+    </div>
+
+  </div>
   {% endblock %}
 
 

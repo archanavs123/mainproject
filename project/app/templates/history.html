@@ -1,17 +1,80 @@
 {% extends 'base.html' %}
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/history.css' %}">
 </head>
+
 <body>
+    {% block content %}
     <div style="text-align: center;">
         <h1>your History</h1>
     </div>
-    
+    <div style="text-align: center;">
+        <br>
+        <h1>Your History</h1>
+        <br>
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Author Name</th>
+                    <th scope="col">Issue Date</th>
+                    <th scope="col">Return Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{book.book_id.book_name}}</td>
+                    <td>{{book.book_id.author_name}}</td>
+                    <td>{{book.issue_date}}</td>
+                    <td>{{book.return_date}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="mx-auto" style="width: 200px;">
+        <nav aria-label="...">
+            <ul class="pagination ms-10">
+                {% if books.has_previous %}
+                <li class="page-item active">
+                    <a href="?page={{books.previous_page_number}}" class="page-link" tabindex="-1">
+                        &laquo;</a>
+                </li>
+                {% endif %}
+                {% for i in "x"|ljust:books.paginator.num_pages %}
+                <li class="page-item {% if forloop.counter == books.number %}active{% endif %}">
+                    <!-- Show the link if there are more than 1 page -->
+
+                    {% if books.paginator.num_pages > 1 %}
+                    <a class="page-link" href="?page={{forloop.counter}}">
+                        {{forloop.counter}}</a>
+                    {% endif %}
+                </li>
+                {% endfor %} {% if books.has_next %}
+                <li class="page-item active">
+                    <a class="page-link" href="?page={{books.next_page_number}}">&raquo;</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    </ul>
+    </nav>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    {% endblock %}
 </body>
+
 </html>

@@ -5,6 +5,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from datetime import datetime
+
 from datetime import date
 from django.core.paginator import Paginator
 # Create your views here.
@@ -104,7 +106,7 @@ def return_item(request):
 
         # Update return date of book and show success message
         issue_item = IssuedItem.objects.filter(user_id=request.user,book_id=current_book,return_date__isnull=True)
-        issue_item.update(return_date=date.today())
+        issue_item.update(return_date=datetime.now)
         messages.success(request, 'Book returned successfully.')
 
     # Get all books which are issued to user

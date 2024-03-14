@@ -10,7 +10,7 @@ class Book(models.Model):
     quantity=models.IntegerField(default=1)
     subject=models.CharField(max_length=2000)
     book_add_time=models.TimeField(default=timezone.now())
-    book_add_date=models.DateField(default=date.today())
+    book_add_date=models.DateField(default=timezone.now())
 
     class Meta:
         unique_together = ('book_name','author_name')
@@ -21,7 +21,7 @@ class Book(models.Model):
 class IssuedItem(models.Model):
     book_id = models.ForeignKey(Book, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    issue_date = models.DateField(default=date.today(),blank=False)
+    issue_date = models.DateTimeField(default=timezone.now(),blank=False)
     return_date = models.DateField(blank=True,null=True)
 
     @property
