@@ -32,5 +32,5 @@ class IssuedItem(models.Model):
     def username(self):
         return self.user_id.username
     
-    def __str__(self) :
-        return self.book_id.book_name + ' issued by ' + self.user_id.first_name + ' on ' + str(self.issue_date)
+    def __int__(self) :
+        return self.book_id.book_name + ' issued by ' + self.user_id.first_name + ' on ' + int(self.issue_date)

@@ -19,14 +19,7 @@
     {% endfor %}  
     <div style="text-align: center;">
      <h1>Books You Have Issued</h1> <br>
-     <div class="input-group-container">
-      <input type="search"
-      id="search"
-      class="form-control rounded"
-      placeholder="search Book"
-      aria-label="search"
-      aria-describedby="search-addon"/>
-     </div>
+  
     </div>
     <br>
     <div class="container">
@@ -47,7 +40,7 @@
               <td>{{book.author_name}}</td>
               <td>
                 <div style="text-align: center;">
-                  <form action="return_item" method="post">
+                  <form  method="post">
                     {% csrf_token %}
                     <input type="hidden" name="book_id" value="{{book.id}}" />
                     <button type="submit" class="btn btn-outline-success btn-sm">
@@ -67,16 +60,7 @@
 
 
 {% endblock %}
-<script>
-    $(document).ready(function () {
-      $("#search").on("keyup", function () {
-        var value = $(this).val().toLowerCase();
-        $("#table_data tr").filter(function () {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-        });
-      });
-    });
-  </script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>

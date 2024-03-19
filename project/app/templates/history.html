@@ -2,7 +2,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +13,8 @@
 
 <body>
     {% block content %}
-    <div style="text-align: center;">
-        <h1>your History</h1>
-    </div>
-    <div style="text-align: center;">
+    
+    <div style="text-align: center;color: aliceblue;">
         <br>
         <h1>Your History</h1>
         <br>
@@ -49,15 +46,19 @@
             <ul class="pagination ms-10">
                 {% if books.has_previous %}
                 <li class="page-item active">
-                    <a href="?page={{books.previous_page_number}}" class="page-link" tabindex="-1">
+                    <a 
+                    class="page-link"
+                    href="?page={{books.previous_page_number}}" 
+                     tabindex="-1">
                         &laquo;</a>
                 </li>
                 {% endif %}
                 {% for i in "x"|ljust:books.paginator.num_pages %}
-                <li class="page-item {% if forloop.counter == books.number %}active{% endif %}">
-                    <!-- Show the link if there are more than 1 page -->
+                <li
+                 class="page-item {% if forloop.counter == books.number %}active{% endif %}">
+                     <!-- Show the link if there are more than 1 page  -->
 
-                    {% if books.paginator.num_pages > 1 %}
+                     {% if books.paginator.num_pages > 1 %}
                     <a class="page-link" href="?page={{forloop.counter}}">
                         {{forloop.counter}}</a>
                     {% endif %}
@@ -70,11 +71,9 @@
             </ul>
         </nav>
     </div>
-    </ul>
-    </nav>
-    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     {% endblock %}
 </body>
 
-</html>
+</html> 

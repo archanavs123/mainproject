@@ -21,19 +21,9 @@
 <div style="text-align: center;">
     <h1>AVAILABLE BOOKS</h1>
     <br>
-    <div class="input-group container">
-        <input
-        id="search"
-        type="search"
-        class="form-control rounded"
-        placeholder="Search Book"
-        aria-label="Search"
-        aria-describedby="search-addon"
-      />
-    </div>
 </div>
 <br>
-<!-- <div class="tables"> -->
+
 <div class="container" >
     <table class="table" style="background-color: white;">
       <thead class="thead-dark">
@@ -52,12 +42,10 @@
           <td>{{book.subject}}</td>
           <td>
             <div style="text-align: center;">
-              <form action="issue" method="post">
+              <form  method="post">
                 {% csrf_token %}
                 <input type="hidden" name="book_id" value="{{book.id}}" />
-                <button type="submit" class="btn btn-outline-success btn-sm">
-                  <b>Issue</b>
-                </button>
+                <input type="submit" class="btn btn-outline-success btn-sm">
               </form>
             </div>
           </td>
@@ -65,18 +53,8 @@
         {% endfor %}
       </tbody>
     </table>
-    <script>
-        $(document).ready(function () {
-          $("#search").on("keyup", function () {
-            var value = $(this).val().toLowerCase();
-            $("#table_data tr").filter(function () {
-              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-            });
-          });
-        });
-      </script>
-  </div>
-  <!-- </div> -->
+ </div>
+
 {% endblock %}
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
