@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from datetime import date
 from django.core.paginator import Paginator
+from django.urls import reverse
 
 # Create your views here.
 
@@ -83,22 +84,28 @@ def issue(request):
     return render(request,'issued_item.html',{'books':books})
 
 # History view to show history of issued books to user
+
+
 @login_required(login_url='loginn')
 def history(request):
-
     # Get all issued books to user
     my_items = IssuedItem.objects.filter(user_id=request.user).order_by('-issue_date')
 
     # Paginate data
-    paginator = Paginator(my_items,10) 
+    paginator = Paginator(my_items, 10)
 
     # Get page number from request
     page_number = request.GET.get('page')
-    show_data_final = paginator.get_page(page_number)
+
+    try:
+        # Get data for requested page
+        show_data_final = paginator.get_page(page_number)
+    except ValueError:
+        # Handle the ValueError here, e.g., by providing an empty queryset
+        show_data_final = []
 
     # Return history page with issued books to user
-    return render(request,'history.html',{'books':show_data_final})
-    
+    return render(request, 'history.html', {'books': show_data_final})    
 
 # Return view to return book to library
 @login_required(login_url='loginn')
