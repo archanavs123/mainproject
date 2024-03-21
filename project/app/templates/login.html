@@ -14,7 +14,7 @@
 <body>
   {% block content %}
 
-  <section class="vh-100" style="background-color: #9A616D;">
+  <section class="vh-100" >
     <div class="row">
 <div class="col-lg-4"></div>
     <div class="col-lg-4">
@@ -22,14 +22,14 @@
 
       <div class="card" style="border-radius: 1rem;">
 
-        <div class="card-body p-4 p-lg-5 text-black">
+        <div class="card-body p-4 p-lg-5 text-black" style="background-color: rgba(0, 0, 0, 0.8); color:white;">
 
-          <form method="post">
+          <form method="post" >
 
             {% csrf_token %}
             <div class="d-flex align-items-center mb-3 pb-1">
-              <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-              <span class="h1 fw-bold mb-0">Login to your Account</span>
+              <i class="fas fa-cubes fa-2x me-3" ></i>
+              <span class="h1 fw-bold mb-0">Login </span>
             </div>
 
 
@@ -48,8 +48,8 @@
             </div>
 
             <a class="small text-muted" href="#!">Forgot password?</a>
-            <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="{% url 'signUp' %}"
-                style="color: #393f81;">Register here</a></p>
+            <p class="mb-5 pb-lg-2" style="color: #dadbe2;">Don't have an account? <a href="{% url 'signUp' %}"
+                style="color: #dfe0eb;">Register here</a></p>
             <a href="#!" class="small text-muted">Terms of use.</a>
             <a href="#!" class="small text-muted">Privacy policy</a>
           </form>

@@ -20,7 +20,7 @@
         <br>
     </div>
     <div class="container">
-        <table class="table" style="background-color: white;">
+        <table class="table" style="background-color: rgba(0, 0, 0, 0.8); color:white;">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Book Name</th>
@@ -42,14 +42,14 @@
         </table>
     </div>
     <div class="mx-auto" style="width: 200px;">
-        <nav aria-label="...">
-            <ul class="pagination ms-10">
+        <nav aria-label="..." >
+            <ul class="pagination ms-10" >
                 {% if books.has_previous %}
                 <li class="page-item active">
                     <a 
                     class="page-link"
                     href="?page={{books.previous_page_number}}" 
-                     tabindex="-1">
+                     tabindex="-1"  style="background-color: black; color: aliceblue;">
                         &laquo;</a>
                 </li>
                 {% endif %}
@@ -59,13 +59,13 @@
                      <!-- Show the link if there are more than 1 page  -->
 
                      {% if books.paginator.num_pages > 1 %}
-                    <a class="page-link" href="?page={{forloop.counter}}">
+                    <a class="page-link" href="?page={{forloop.counter}}" style="background-color: black; color: aliceblue;">
                         {{forloop.counter}}</a>
                     {% endif %}
                 </li>
                 {% endfor %} {% if books.has_next %}
                 <li class="page-item active">
-                    <a class="page-link" href="?page={{books.next_page_number}}">&raquo;</a>
+                    <a class="page-link" href="?page={{books.next_page_number}}"  style="background-color: black; color: aliceblue;">&raquo;</a>
                 </li>
                 {% endif %}
             </ul>

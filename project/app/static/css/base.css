@@ -1,20 +1,11 @@
 body{
-    background-image: url('../images/base.jpg');
+    background-image: url('../images/base1.jpg');
     background-size: cover;
    
 }
-.qote
-{
 
-    border: 1px solid black;
-    box-shadow: 0 0 10px ;
-border-radius: 20px;
-color: aliceblue;
-text-align: center;
-background-color: rgba(0, 0, 0, 0.5);
-}
 .nav-link{
-    color: aliceblue;
+    color: rgb(5, 5, 5);
     font-size: large;
     text-decoration: none;
     padding: 10px 15px;
@@ -22,7 +13,7 @@ background-color: rgba(0, 0, 0, 0.5);
     transition: background-color 0.3s ease;
 }
 .nav-link:hover{
-    background-color: #f0f0f0;
-    color: #000;
+    background-color: #000000;
+    color: rgb(253, 253, 253)
 }
  

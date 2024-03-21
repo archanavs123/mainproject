@@ -23,7 +23,7 @@
     </div>
     <br>
     <div class="container">
-        <table class="table" style="background-color: white;">
+        <table class="table" style="background-color: rgba(0, 0, 0, 0.8); color:white;">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Book Name</th>
@@ -43,9 +43,9 @@
                   <form  method="post">
                     {% csrf_token %}
                     <input type="hidden" name="book_id" value="{{book.id}}" />
-                    <button type="submit" class="btn btn-outline-success btn-sm">
-                      Return
-                    </button>
+                    <!-- <button type="submit" class="btn btn-outline-success btn-sm"> -->
+                <input type="submit" class="btn btn-outline-light" >
+
                   </form>
                 </div>
               </td>
