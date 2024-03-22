@@ -138,3 +138,11 @@ def return_item(request):
     # Return return page with books that are issued to user
     params = {'books':books}
     return render(request,'return_item.html',params)
+#search
+# def search_books(request):
+#     query = request.GET.get('q')
+#     results = []
+#     if query:
+#         # Perform case-insensitive search on the title and author fields
+#         results = Book.objects.filter(book_name__icontains=query) | Book.objects.filter(author_name__icontains=query)
+#     return render(request, 'issued_item.html', {'results': results, 'query': query})
